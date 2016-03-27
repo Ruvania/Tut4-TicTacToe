@@ -9,6 +9,8 @@ public: int reset();
 		void DisplayBoard();
 		void NextPlayer();
 		int move(int,int);
+		int gameOver;
+		int over();
 };
 
 int TicTacToe::reset()
@@ -51,9 +53,7 @@ void TicTacToe::DisplayBoard()
 	cout << "+---+---+---+\n";
 }
 	
-	void TicTacToe::NextPlayer()
-
-
+void TicTacToe::NextPlayer()
 	{
 		if (player == 1)
 			player = 2;
@@ -61,9 +61,29 @@ void TicTacToe::DisplayBoard()
 			player = 1;
 	}
 
-	int TicTacToe::move(int row, int col)
+int TicTacToe::move(int row, int col)
 	{
       
+	}
+
+	void TicTacToe::over()
+{
+	if ((board[0][0] == turn) && (board[1][0] == turn) && (board[2][0] == turn))
+		gameOver = turn;
+	else if ((board[0][1] == turn) && (board[1][1] == turn) && (board[2][1] == turn))
+	    gameOver = turn;
+	else if ((board[0][2] == turn) && (board[1][2] == turn) && (board[2][2] == turn))
+		gameOver = turn;
+	else if ((board[0][0] == turn) && (board[0][1] == turn) && (board[0][2] == turn))
+		gameOver = turn;
+	else if ((board[1][0] == turn) && (board[1][1] == turn) && (board[1][2] == turn))
+		gameOver = turn;
+	else if ((board[2][0] == turn) && (board[2][1] == turn) && (board[2][2] == turn))
+		gameOver = turn;
+	else if ((board[0][0] == turn) && (board[1][1] == turn) && (board[2][2] == turn))
+		gameOver = turn;
+	else if ((board[0][2] == turn) && (board[1][1] == turn) && (board[2][0] == turn))
+		gameOver = turn;
 	}
 
 int main()
